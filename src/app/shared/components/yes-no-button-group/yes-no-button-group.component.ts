@@ -7,8 +7,8 @@ import {
   Output,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { UniqueIdService } from '../../services/unique-id/unique-id.service';
 
+import { UniqueIdService } from '../../services/unique-id/unique-id.service';
 import { YesNoButtonGroupOptions } from './yes-no-button-group-options';
 
 @Component({
