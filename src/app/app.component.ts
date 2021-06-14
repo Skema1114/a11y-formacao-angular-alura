@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'a11y-p1-formacao-angular-alura';
-  public yesNoAnswer = 'no';
+  public form!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({
+      yesNoAnswer: ['no'],
+    });
+  }
+
+  public submit(): void {
+    console.log(this.form.value);
+  }
 }

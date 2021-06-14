@@ -26,12 +26,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-# INSTALAÇÕES DURANTE O CURSO
+# Comandos utilizados
 
 ng g m shared/components/yes-no-button-group
 
 ng g c shared/components/yes-no-button-group
 
-# Comentarios
+# Anotações
 
-- A sintaxe `[(value)]` só funciona trocando os valores da tela na doom porque o input chama-se `value` e o output com o event chama-se `valueChange`, este que possui o `EventEmitter`. Senão teria que ser `[value]="yesNoAnswer" (valueChange)="yesNoAnswer = $event"`;
+- A sintaxe `[(value)]="yesNoAnswer"` só funciona trocando os valores da tela na doom porque o input chama-se `value` e o output com o event chama-se `valueChange`, este que possui o `EventEmitter`. Senão teria que ser `[value]="yesNoAnswer" (valueChange)="yesNoAnswer = $event"`;
+- Com o `ngSubmit` caso ocorra algum erro, não haverá refresh na mesma, diferente se usar o `submit`;
+- o `forwardRef()` é utilizado quando o `acessor token` é declarado mas ainda não foi definido, seria a referencia de algo que ainda esta para existir;
+-
