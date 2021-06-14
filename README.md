@@ -26,15 +26,25 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-# Comandos utilizados
+## Comandos utilizados
 
 ng g m shared/components/yes-no-button-group
 
 ng g c shared/components/yes-no-button-group
 
-# Anotações
+npm i uuid@8.3.0
+
+npm i --save-dev @types/uuid
+
+## Anotações
 
 - A sintaxe `[(value)]="yesNoAnswer"` só funciona trocando os valores da tela na doom porque o input chama-se `value` e o output com o event chama-se `valueChange`, este que possui o `EventEmitter`. Senão teria que ser `[value]="yesNoAnswer" (valueChange)="yesNoAnswer = $event"`;
 - Com o `ngSubmit` caso ocorra algum erro, não haverá refresh na mesma, diferente se usar o `submit`;
 - o `forwardRef()` é utilizado quando o `acessor token` é declarado mas ainda não foi definido, seria a referencia de algo que ainda esta para existir;
--
+- Quando é preciso fazer o `data binding` com atributos das tags, é necessário utilizar o `attr.`, exemplo `[attr.aria-checked]`;
+- Na parte do inspecionar do google, tem as funcionalidades do `Lighthouse` que pode ser utilizada para a verificação do site, essa verificação dará uma nota para o mesmo, pode-se fazer essa verificação/teste para os diversos fins, exemplo, acessibilidade, melhores prativas, performance, etc...;
+- É recomendavél isolar a biblioteca que gera ids unicos, isso facilitará a manutenção do código;
+
+## Extensão utilizada para Screen Reader
+
+- https://chrome.google.com/webstore/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn/related?hl=pt-BR
