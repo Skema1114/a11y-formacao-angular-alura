@@ -25,8 +25,9 @@ import { YesNoButtonGroupOptions } from './yes-no-button-group-options';
 })
 export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
   @Input() public value: string = '';
-  @Output() public valueChange = new EventEmitter<string>();
   @Input() public label = '';
+  @Input() public disabled = false;
+  @Output() public valueChange = new EventEmitter<string>();
   public options = YesNoButtonGroupOptions;
   public onChange = (value: string) => {};
   public onTouched = () => {};
@@ -51,6 +52,10 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
 
   public registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
+  }
+
+  public setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 
   public activate(value: string): void {

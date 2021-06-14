@@ -11,6 +11,7 @@
     [attr.aria-checked]="value === options.YES"
     [attr.tabindex]="value === options.YES || value === '' ? 0 : -1"
     (focused)="activate(options.YES)"
+    [attr.disabled]="disabled ? disabled : null"
     class="button button-yes"
     type="button"
     (click)="activate(options.YES)"
@@ -25,6 +26,7 @@
     [attr.aria-checked]="value === options.NO"
     [attr.tabindex]="value === options.NO ? 0 : -1"
     (focused)="activate(options.NO)"
+    [attr.disabled]="disabled ? disabled : null"
     class="button button-no"
     type="button"
     (click)="activate(options.NO)"
@@ -33,4 +35,36 @@
   >
     No
   </button>
+</div>
+
+<!-- DESENVOLVIDO COM TAGS PADRÕES DO HTML -->
+
+<br />
+
+<div class="button-group" role="radiogroup" [attr.aria-label]="label">
+  <label>{{ label }}</label>
+
+  <div class="radio">
+    <input
+      [attr.id]="id + '-yes'"
+      type="radio"
+      [attr.name]="id"
+      [attr.checked]="value === options.YES"
+      (changes)="activate(options.YES)"
+    />
+
+    <label class="button button-yes" [attr.for]="id + '-yes'">Yes</label>
+  </div>
+
+  <div class="radio">
+    <input
+      [attr.id]="id + '-no'"
+      type="radio"
+      [attr.name]="id"
+      [attr.checked]="value === options.NO"
+      (changes)="activate(options.NO)"
+    />
+
+    <label class="button button-no" [attr.for]="id + '-no'">No</label>
+  </div>
 </div>

@@ -3,6 +3,7 @@
 
   <form [formGroup]="form" (ngSubmit)="submit()">
     <app-yes-no-button-group
+      [appDisableControl]="true"
       formControlName="yesNoAnswer"
       label="Are you enough in Angular?"
     ></app-yes-no-button-group>

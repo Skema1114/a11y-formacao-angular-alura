@@ -40,10 +40,14 @@ npm i --save-dev @types/uuid
 
 - A sintaxe `[(value)]="yesNoAnswer"` só funciona trocando os valores da tela na doom porque o input chama-se `value` e o output com o event chama-se `valueChange`, este que possui o `EventEmitter`. Senão teria que ser `[value]="yesNoAnswer" (valueChange)="yesNoAnswer = $event"`;
 - Com o `ngSubmit` caso ocorra algum erro, não haverá refresh na mesma, diferente se usar o `submit`;
-- o `forwardRef()` é utilizado quando o `acessor token` é declarado mas ainda não foi definido, seria a referencia de algo que ainda esta para existir;
-- Quando é preciso fazer o `data binding` com atributos das tags, é necessário utilizar o `attr.`, exemplo `[attr.aria-checked]`;
-- Na parte do inspecionar do google, tem as funcionalidades do `Lighthouse` que pode ser utilizada para a verificação do site, essa verificação dará uma nota para o mesmo, pode-se fazer essa verificação/teste para os diversos fins, exemplo, acessibilidade, melhores prativas, performance, etc...;
-- É recomendavél isolar a biblioteca que gera ids unicos, isso facilitará a manutenção do código;
+- o `forwardRef()` é utilizado quando o `acessor token` é declarado mas ainda não foi definido, seria a referência de algo que ainda está para existir;
+- Quando é preciso fazer o `data binding` com atributos das tags, é necessário utilizar o `attr.` (exemplo: `[attr.aria-checked]`);
+- Na parte do inspecionar do google, tem as funcionalidades do `Lighthouse` que pode ser utilizada para a verificação do site, essa verificação dará uma nota para o mesmo, pode-se fazer essa verificação/teste para os diversos fins, (exemplo: acessibilidade, melhores práticas, performance);
+- É recomendável isolar a biblioteca que gera ids únicos, isso facilitará a manutenção do código;
+- Quando está trabalhando com atributos das tags que só a presença dos mesmos já ativa a função (exemplo: disabled, checked), é necessário fazer ` [attr.disabled]="disabled ? disabled : null"` e NÃO assim ` [attr.disabled]="disabled"`, pois quando é adicionado `null` a atributos, os mesmo não serão criados, OBS: caso seja feita a lógica ` [attr.disabled]="disabled ? disabled : false"`, o atributo será criado e com isso, nesse exemplo, será desativado, é preciso utilizar `null` para informar que não é necessário criar essa propriedade no elemento;
+- Dica da alura: se você precisa de um botão que esteja desabilitado mas que ainda possa ganhar foco, utilize o atributo `aria-disabled`, `screen readers` irão anunciar o elemento como `disabled`, mas lembre-se: você precisará garantir que a ação do botão só seja disparada quando ele estiver habilitado novamente, geralmente no método chamado pelo botão;
+- Quando o nome de uma propriedade da diretiva é o mesmo nome do selector da diretiva, pode-se utilizá-la da seguinte forma no html: `[appDisableControl]="false"` caso contrário, teria de ser utilizada assim: `appDisableControl [teste]="false"`, ou seja, teria de declarar a diretiva e passar o valor do paramentro desejado;
+- Tentar utilizar ao máximo as tags padrões do html, pois pode ser menos trabalhoso mas nem sempre será possível utilizar elas, há casos que não será possível;
 
 ## Extensão utilizada para Screen Reader
 
