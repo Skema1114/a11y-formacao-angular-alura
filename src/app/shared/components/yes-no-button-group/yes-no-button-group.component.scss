@@ -52,6 +52,16 @@ $button-pressed-background: #0fc7ff;
 
     label {
       display: block;
+
+      &.radio-left {
+        margin-left: 9px;
+      }
     }
   }
+}
+
+// GERAL
+
+.button-group {
+  text-align: left;
 }

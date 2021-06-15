@@ -1,13 +1,58 @@
 <main>
-  <h1>Form</h1>
+  <!-- ITENS DO CURSO 02 -->
 
-  <form [formGroup]="form" (ngSubmit)="submit()">
-    <app-yes-no-button-group
-      [appDisableControl]="true"
-      formControlName="yesNoAnswer"
-      label="Are you enough in Angular?"
-    ></app-yes-no-button-group>
+  <div>
+    <h1>Accessible Modal Component</h1>
 
-    <button>Submit</button>
-  </form>
+    <p>Welcome to the accessible modal testing page!</p>
+
+    <button class="button button-primary" type="button" (click)="show()">
+      Show modal
+    </button>
+
+    <ng-template #modalTemplate>
+      <div class="form-field">
+        <label for="firstName">First name</label>
+        <input id="firstName" [value]="firstName" />
+        <!-- [(value)]="firstName" -->
+      </div>
+
+      <div class="form-field">
+        <label for="surname">Surname</label>
+        <input id="surname" />
+      </div>
+
+      <div class="form-field">
+        <label for="age">Age</label>
+        <input id="age" />
+      </div>
+
+      <div class="button-group">
+        <button class="button button-primary" type="button">Submit</button>
+        <button
+          class="button button-secondary"
+          type="button"
+          (click)="modalRef.close()"
+        >
+          Cancel
+        </button>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- ITENS DO CURSO 01 -->
+
+  <div>
+    <h1 class="separator">Accessible Checks Component</h1>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <app-yes-no-button-group
+        [appDisableControl]="false"
+        formControlName="yesNoAnswer"
+        label="Are you enough in Angular?"
+      ></app-yes-no-button-group>
+
+      <button class="button button-primary">Submit</button>
+    </form>
+  </div>
 </main>
