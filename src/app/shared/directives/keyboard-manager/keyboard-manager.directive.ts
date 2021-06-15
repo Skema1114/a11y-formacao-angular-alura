@@ -5,8 +5,8 @@ import {
   QueryList,
 } from '@angular/core';
 
-import { ArrowDirection } from './arrow-direction';
-import { KeyboardManagerItemDirective } from './keyboard-manager-item.directive';
+import { ArrowDirection } from './model/arrow-direction';
+import { KeyboardManagerItemDirective } from './keyboard-manager-item/keyboard-manager-item.directive';
 
 @Directive({
   selector: '[appKeyboardManager]',

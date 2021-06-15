@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ModalComponent } from './modal.component';
-import { ModalService } from './modal.service';
+import { ModalService } from './service/modal.service';
 
 @NgModule({
   declarations: [ModalComponent],

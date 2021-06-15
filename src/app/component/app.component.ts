@@ -1,8 +1,13 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ModalRef } from './shared/components/modal/modal-ref';
 
-import { ModalService } from './shared/components/modal/modal.service';
+import { ModalRef } from '../shared/components/modal/model/modal-ref';
+import { ModalService } from '../shared/components/modal/service/modal.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +23,8 @@ export class AppComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private changeDetectorRef: ChangeDetectorRef
   ) {
     this.form = this.formBuilder.group({
       yesNoAnswer: [
