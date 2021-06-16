@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { ModalRef } from '../shared/components/modal/model/modal-ref';
+import { ModalRef } from '../shared/models/modal-ref';
 import { ModalService } from '../shared/components/modal/service/modal.service';
 
 @Component({
@@ -19,6 +19,7 @@ export class AppComponent {
   public form!: FormGroup;
   public firstName: string = 'Rafael';
   public modalRef!: ModalRef;
+  public info: boolean = false;
   @ViewChild('modalTemplate') public modalTemplateRef!: TemplateRef<any>;
 
   constructor(

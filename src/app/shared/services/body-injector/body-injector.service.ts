@@ -1,5 +1,9 @@
-import { EmbeddedViewRef } from '@angular/core';
-import { ApplicationRef, ComponentRef, Injectable } from '@angular/core';
+import {
+  ApplicationRef,
+  ComponentRef,
+  Injectable,
+  EmbeddedViewRef,
+} from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +21,6 @@ export class BodyInjectorService {
     this.appRef.attachView(componentRef.hostView);
     const domElement = (componentRef.hostView as EmbeddedViewRef<any>)
       .rootNodes[0] as HTMLElement;
-
     return domElement;
   }
 }

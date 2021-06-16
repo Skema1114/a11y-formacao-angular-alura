@@ -9,7 +9,7 @@ import {
 import { BodyInjectorService } from 'src/app/shared/services/body-injector/body-injector.service';
 import { ModalComponent } from '../modal.component';
 import { ModalConfig } from '../model/modal-config';
-import { ModalRef } from '../model/modal-ref';
+import { ModalRef } from '../../../models/modal-ref';
 
 @Injectable({
   providedIn: 'root',
@@ -28,11 +28,16 @@ export class ModalService {
 
   public open(config: ModalConfig): ModalRef {
     const componentRef = this.createComponentRef();
+    const modalRef = new ModalRef(componentRef);
     componentRef.instance.config = config;
+
     console.log(componentRef.instance);
     console.log('Open called');
+
     this.bodyInjectorService.stackBeforeAppRoot(componentRef);
-    return new ModalRef(componentRef);
+    componentRef.instance.modalRef = modalRef;
+
+    return modalRef;
   }
 
   private createComponentRef(): ComponentRef<ModalComponent> {

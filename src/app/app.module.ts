@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './component/app.component';
 import { ModalModule } from './shared/components/modal/modal.module';
@@ -16,6 +17,7 @@ import { DisableControlModule } from './shared/directives/disable-control/disabl
     FormsModule,
     DisableControlModule,
     ModalModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
