@@ -1,0 +1,33 @@
+<!-- DESENVOLVIDO COM TAGS PADRÕES DO HTML -->
+
+<br />
+
+<div class="button-group" role="radiogroup" [attr.aria-label]="label">
+  <label>{{ label }}</label>
+
+  <div class="radio">
+    <input
+      [attr.id]="id + '-yes'"
+      type="radio"
+      [attr.name]="id"
+      [attr.checked]="value === options.YES"
+      (changes)="activate(options.YES)"
+    />
+
+    <label class="button button-yes radio-left" [attr.for]="id + '-yes'"
+      >Yes</label
+    >
+  </div>
+
+  <div class="radio">
+    <input
+      [attr.id]="id + '-no'"
+      type="radio"
+      [attr.name]="id"
+      [attr.checked]="value === options.NO"
+      (changes)="activate(options.NO)"
+    />
+
+    <label class="button button-no" [attr.for]="id + '-no'">No</label>
+  </div>
+</div>

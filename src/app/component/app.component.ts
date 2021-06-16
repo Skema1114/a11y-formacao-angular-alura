@@ -8,11 +8,13 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { ModalRef } from '../shared/models/modal-ref';
 import { ModalService } from '../shared/components/modal/service/modal.service';
+import { fade } from '../shared/animations/fade/fade';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [fade],
 })
 export class AppComponent {
   public title = 'a11y-formacao-angular-alura';
@@ -28,7 +30,14 @@ export class AppComponent {
     private changeDetectorRef: ChangeDetectorRef
   ) {
     this.form = this.formBuilder.group({
-      yesNoAnswer: [
+      angularTagsYesNoAnswer: [
+        {
+          value: 'yes',
+          disabled: false,
+        },
+      ],
+
+      htmlTagsYesNoAnswer: [
         {
           value: 'yes',
           disabled: false,
@@ -38,6 +47,7 @@ export class AppComponent {
   }
 
   public submit(): void {
+    console.log('OBS: HtmlTagsYesNoButtonGroup IS NOT CATCHING VALUES');
     console.log(this.form.value);
   }
 

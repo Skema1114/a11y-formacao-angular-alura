@@ -8,22 +8,24 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
+import { YesNoButtonGroupOptions } from '../../models/yes-no-button-group-options';
 import { UniqueIdService } from '../../services/unique-id/unique-id.service';
-import { YesNoButtonGroupOptions } from './model/yes-no-button-group-options';
 
 @Component({
-  selector: 'app-yes-no-button-group',
-  templateUrl: './yes-no-button-group.component.html',
-  styleUrls: ['./yes-no-button-group.component.scss'],
+  selector: 'app-html-tags-yes-no-button-group',
+  templateUrl: './html-tags-yes-no-button-group.component.html',
+  styleUrls: ['./html-tags-yes-no-button-group.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: forwardRef(() => YesNoButtonGroupComponent),
+      useExisting: forwardRef(() => HtmlTagsYesNoButtonGroupComponent),
     },
   ],
 })
-export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
+export class HtmlTagsYesNoButtonGroupComponent
+  implements OnInit, ControlValueAccessor
+{
   @Input() public value: string = '';
   @Input() public label = '';
   @Input() public disabled = false;
@@ -34,7 +36,9 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
   public id!: any;
 
   constructor(uniqueIdService: UniqueIdService) {
-    this.id = uniqueIdService.generateUniqueIdWithPrefix('yes-no-button-group');
+    this.id = uniqueIdService.generateUniqueIdWithPrefix(
+      'html-tags-yes-no-button-group'
+    );
     console.log(this.id);
   }
 

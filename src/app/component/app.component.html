@@ -50,11 +50,17 @@
     <h1 class="separator">Accessible Checks Component</h1>
 
     <form [formGroup]="form" (ngSubmit)="submit()">
-      <app-yes-no-button-group
+      <app-angular-tags-yes-no-button-group
         [appDisableControl]="false"
-        formControlName="yesNoAnswer"
+        formControlName="angularTagsYesNoAnswer"
         label="Are you enough in Angular?"
-      ></app-yes-no-button-group>
+      ></app-angular-tags-yes-no-button-group>
+
+      <app-html-tags-yes-no-button-group
+        [appDisableControl]="false"
+        formControlName="htmlTagsYesNoAnswer"
+        label="Are you enough in Angular?"
+      ></app-html-tags-yes-no-button-group>
 
       <button class="button button-primary">Submit</button>
     </form>

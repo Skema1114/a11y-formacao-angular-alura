@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { YesNoButtonGroupComponent } from './yes-no-button-group.component';
+import { HtmlTagsYesNoButtonGroupComponent } from './html-tags-yes-no-button-group.component';
 import { KeyboardManagerModule } from '../../directives/keyboard-manager/keyboard-manager.module';
 
 @NgModule({
-  declarations: [YesNoButtonGroupComponent],
+  declarations: [HtmlTagsYesNoButtonGroupComponent],
   imports: [CommonModule, KeyboardManagerModule],
-  exports: [YesNoButtonGroupComponent],
+  exports: [HtmlTagsYesNoButtonGroupComponent],
 })
-export class YesNoButtonGroupModule {}
+export class HtmlTagsYesNoButtonGroupModule {}
