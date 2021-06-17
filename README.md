@@ -10,7 +10,7 @@
   - Angular: Avançando no design de componentes com acessibilidade
   - https://cursos.alura.com.br/course/angular-avancando-componentes-acessibilidade
 
-# A11yFormacaoAngularAlura
+## A11yFormacaoAngularAlura
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
 
