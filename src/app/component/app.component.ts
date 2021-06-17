@@ -1,10 +1,11 @@
 import {
   ChangeDetectorRef,
   Component,
+  OnInit,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ModalRef } from '../shared/models/modal-ref';
 import { ModalService } from '../shared/components/modal/service/modal.service';
@@ -16,9 +17,10 @@ import { fade } from '../shared/animations/fade/fade';
   styleUrls: ['./app.component.scss'],
   animations: [fade],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public title = 'a11y-formacao-angular-alura';
-  public form!: FormGroup;
+  public formYesNoButtonGroup!: FormGroup;
+  public formModal!: FormGroup;
   public firstName: string = 'Rafael';
   public modalRef!: ModalRef;
   public info: boolean = false;
@@ -28,8 +30,10 @@ export class AppComponent {
     private formBuilder: FormBuilder,
     private modalService: ModalService,
     private changeDetectorRef: ChangeDetectorRef
-  ) {
-    this.form = this.formBuilder.group({
+  ) {}
+
+  public ngOnInit(): void {
+    this.formYesNoButtonGroup = this.formBuilder.group({
       angularTagsYesNoAnswer: [
         {
           value: 'yes',
@@ -44,11 +48,26 @@ export class AppComponent {
         },
       ],
     });
+
+    this.formModal = this.formBuilder.group({
+      firstName: ['Rafael', [Validators.required]],
+      surname: ['', [Validators.required]],
+      age: ['', [Validators.required]],
+      info: [false],
+    });
   }
 
-  public submit(): void {
+  public submitYesNoButton(): void {
     console.log('OBS: HtmlTagsYesNoButtonGroup IS NOT CATCHING VALUES');
-    console.log(this.form.value);
+    console.log(this.formYesNoButtonGroup.value);
+  }
+
+  public submitModal(): void {
+    if (this.formModal.invalid) {
+      return;
+    }
+    console.log(this.formModal.value);
+    this.modalRef.close();
   }
 
   public show() {

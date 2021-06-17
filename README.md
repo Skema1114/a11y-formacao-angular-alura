@@ -63,11 +63,13 @@ npm i --save-dev @types/uuid
 - Para que navegadores antigos suportem o `animation module` (que o angular utiliza o `web animations`) é necessário ir no arquivo `polyfills.ts` e descomentar `import "web-animations-js";` (no vídeo, é na linha 29) e depois rodar o comando `npm install --save web-animations-js`;
 - Para adicionar uma animação a um elemento normal (não sendo o `host element`), é adicionado desta maneira `<div [@fade] *ngIf="true">` (nesse exemplo a animação chama-se `fade` e o `*ngIf` está controlando quando aquele determinado elemento aparecerá na DOM), pode-se fazer um `bidding` para ativar e desativar a animação, assim `<div [@fade]="active" *ngIf="true">` (nesse exemplo a variável `active` é quem define quando a animação será ativa);
 - O `(click)="$event.stopPropagation()"` faz com que pare a propagação do click, ou seja, quando clicado dentro do modal, ele não vai fechar pois com essa linha de código, o click não vai ser propagado até o overlay e com isso não vai acessar o click do overlay, que é quem faz o modal fechar, isso funciona para parar a propagação de eventos em árvores de filhos para pais;
+- O angular só começa a tomar conta do ciclo de vida do seu componente a partir do `ngOnInit` o `constructor` do componente o angular não tem controle nenhum, quem tem o controle é o `Typescript/Javascript`, se tem alguma inicialização que o angular precisa saber se deu algum tipo de problema, é preciso colocá-la no `ngOnInit`;
+- Alguns leitores de tela: `Jaws Screen Reader` (é pago e mais utilizado no ambiente corporativo, só para o windows), `NVDA Screen Reader` (é apenas para o firefox e só para windows), `VoiceOver Screen Reader` (só para mac) e o utilizado no curso, chamado de `ChromeVox Screen Reader` (é uma extensão para o chrome e completamente gratuita, quando eu fiz as aulas, esta já se chamava apenas `Screen Reader`);
 
 ## Extensão utilizada para Screen Reader
 
 - https://chrome.google.com/webstore/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn/related?hl=pt-BR
 
-## Documentação das normas da acessibilidade
+## Documentação das normas de acessibilidade
 
 - https://www.w3.org/WAI/standards-guidelines/wcag/

@@ -11,36 +11,95 @@
     </button>
 
     <ng-template #modalTemplate>
-      <div class="form-field">
-        <label for="firstName">First name</label>
-        <input id="firstName" [value]="firstName" />
-        <!-- [(value)]="firstName" -->
-      </div>
+      <form [formGroup]="formModal" (ngSubmit)="submitModal()">
+        <div class="form-field">
+          <label for="firstName">First name</label>
 
-      <div class="form-field">
-        <label for="surname">Surname</label>
-        <input id="surname" />
-      </div>
+          <input
+            aria-describedby="firstName-error"
+            [attr.aria-invalid]="formModal.get('firstName')?.errors?.required"
+            id="firstName"
+            formControlName="firstName"
+          />
 
-      <div class="form-field">
-        <label for="age">Age</label>
-        <input id="age" />
-      </div>
+          <span
+            *ngIf="formModal.get('firstName')?.errors?.required"
+            id="firstName-error"
+            class="validation-error"
+            >First name is required</span
+          >
+        </div>
 
-      <label for="info">Subscribe to news letter</label>
-      <input id="info" type="checkbox" (change)="info = !info" />
-      <p [@fade] *ngIf="info">This is a placeholder for more information</p>
+        <div class="form-field">
+          <label for="surname">Surname</label>
 
-      <div class="button-group">
-        <button class="button button-primary" type="button">Submit</button>
-        <button
-          class="button button-secondary"
-          type="button"
-          (click)="modalRef.close()"
-        >
-          Cancel
-        </button>
-      </div>
+          <input
+            aria-describedby="surname-error"
+            [attr.aria-invalid]="formModal.get('sur name')?.errors?.required"
+            id="surname"
+            formControlName="surname"
+          />
+
+          <span
+            *ngIf="formModal.get('surname')?.errors?.required"
+            id="surname-error"
+            class="validation-error"
+            >Surname is required</span
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="age">Age</label>
+
+          <input
+            aria-describedby="age-error"
+            [attr.aria-invalid]="formModal.get('age')?.errors?.required"
+            id="age"
+            formControlName="age"
+          />
+
+          <span
+            *ngIf="formModal.get('age')?.errors?.required"
+            id="age-error"
+            class="validation-error"
+            >Age is required</span
+          >
+        </div>
+
+        <label for="info">Subscribe to news letter</label>
+
+        <input
+          class="input-checkbox"
+          id="info"
+          type="checkbox"
+          (change)="info = !info"
+          formControlName="info"
+        />
+
+        <p [@fade] *ngIf="info">This is a placeholder for more information</p>
+
+        <div class="button-group">
+          <button
+            class="button"
+            [ngClass]="{
+              'button-disabled': formModal.invalid,
+              'button-primary': formModal.valid
+            }"
+            type="submit"
+            [attr.aria-disabled]="formModal.invalid"
+          >
+            Submit
+          </button>
+
+          <button
+            class="button button-secondary"
+            type="button"
+            (click)="modalRef.close()"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
     </ng-template>
   </div>
 
@@ -49,7 +108,7 @@
   <div>
     <h1 class="separator">Accessible Checks Component</h1>
 
-    <form [formGroup]="form" (ngSubmit)="submit()">
+    <form [formGroup]="formYesNoButtonGroup" (ngSubmit)="submitYesNoButton()">
       <app-angular-tags-yes-no-button-group
         [appDisableControl]="false"
         formControlName="angularTagsYesNoAnswer"

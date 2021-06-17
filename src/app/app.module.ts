@@ -20,6 +20,7 @@ import { DisableControlModule } from './shared/directives/disable-control/disabl
     DisableControlModule,
     ModalModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
