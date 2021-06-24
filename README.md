@@ -14,10 +14,10 @@
 
 ## Comandos utilizados
 
-- ng g m shared/components/yes-no-button-group
-- ng g c shared/components/yes-no-button-group
-- npm i uuid@8.3.0
-- npm i --save-dev @types/uuid
+- `ng g m shared/components/yes-no-button-group`
+- `ng g c shared/components/yes-no-button-group`
+- `npm i uuid@8.3.0`
+- `npm i --save-dev @types/uuid`
 
 ## Anotações
 
